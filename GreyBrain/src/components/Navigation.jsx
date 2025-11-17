@@ -29,7 +29,7 @@ const Navigation = ({ currentPage, onNavigate }) => {
             onClick={() => onNavigate('home')}
           >
             <Brain className="w-10 h-10 text-purple-400" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               GreyBrain
             </span>
           </div>
@@ -40,7 +40,7 @@ const Navigation = ({ currentPage, onNavigate }) => {
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
-                className={`capitalize transition-colors ${
+                className={`capitalize transition-colors cursor-pointer ${
                   currentPage === item.id ? 'text-purple-400' : 'text-gray-300 hover:text-purple-300'
                 }`}
               >
@@ -70,7 +70,7 @@ const Navigation = ({ currentPage, onNavigate }) => {
                   onNavigate(item.id);
                   setIsMenuOpen(false);
                 }}
-                className="block w-full text-left capitalize text-gray-300 hover:text-purple-400 py-2"
+                className="block w-full text-left capitalize text-gray-300 hover:text-purple-400 py-2 cursor-pointer"
               >
                 {item.label}
               </button>

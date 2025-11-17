@@ -249,21 +249,21 @@ const HomePage = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Newsletter Cards Section with Flip Animation */}
+      {/* Article Cards Section with Flip Animation */}
       <section className="py-20 px-4 relative bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Latest Insights
+              Latest Articles
             </h2>
-            <p className="text-xl text-gray-400">Stay updated with the latest in AI healthcare</p>
+            <p className="text-xl text-gray-400">Stay updated with the latest in GreyBrainer articles</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-5">
             {newslettersData.map((newsletter) => (
               <div 
                 key={newsletter.id}
-                className="relative h-80 cursor-pointer perspective"
+                className="relative h-96 cursor-pointer perspective"
                 onClick={() => toggleFlip(newsletter.id)}
               >
                 <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${flippedCards[newsletter.id] ? 'rotate-y-180' : ''}`}>
@@ -271,7 +271,7 @@ const HomePage = ({ onNavigate }) => {
                   <div className="absolute w-full h-full backface-hidden">
                     <div className="h-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/50 transition-all shadow-xl flex flex-col">
                       <div className={`inline-block px-4 py-1 bg-linear-to-r ${newsletter.color} rounded-full text-sm font-semibold mb-4 self-start`}>
-                        Newsletter
+                        Articles
                       </div>
                       <h3 className="text-2xl font-bold mb-3 text-white">{newsletter.title}</h3>
                       <p className="text-gray-500 text-sm mb-4">{newsletter.date}</p>
@@ -286,7 +286,7 @@ const HomePage = ({ onNavigate }) => {
                       <h3 className="text-2xl font-bold mb-4 text-white">{newsletter.title}</h3>
                       <p className="text-white/90 leading-relaxed mb-6">{newsletter.fullContent}</p>
                       <button className="flex items-center space-x-2 text-white font-semibold hover:underline">
-                        <span>Read Full Article</span>
+                        <a href={newsletter.link} target="_blank"><span>Read Full Article</span></a>
                         <ExternalLink size={18} />
                       </button>
                     </div>
@@ -300,39 +300,35 @@ const HomePage = ({ onNavigate }) => {
 
       {/* Newsletter Subscribe Section */}
       <section className="py-20 px-4 relative">
-        <div className="max-w-4xl mx-auto text-center">
-          <Mail className="w-16 h-16 text-purple-400 mx-auto mb-6 animate-pulse" />
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Stay in the Loop
-          </h2>
-          <p className="text-xl text-gray-300 mb-10">
-            Get the latest insights on AI in healthcare, course updates, and exclusive content delivered to your inbox.
-          </p>
-          
-          <div className="max-w-md mx-auto">
-            <div className="flex gap-4">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-4 bg-gray-800/50 border-2 border-purple-500/30 rounded-full focus:border-purple-500 focus:outline-none text-white placeholder-gray-500 backdrop-blur-sm"
-              />
-              <button
-                onClick={handleSubscribe}
-                className="px-8 py-4 bg-linear-to-r from-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all flex items-center space-x-2"
+
+          <div className="max-w-4xl mx-auto text-center">
+            <Mail className="w-16 h-16 text-purple-400 mx-auto mb-6 animate-pulse" />
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Join Our Telegram Community
+            </h2>
+            <p className="text-xl text-gray-300 mb-10">
+              Get the latest insights on AI in healthcare, course updates delivered to your inbox, along with discussions and a close-knit connection to the GreyBrain doctors & AI community.
+            </p>
+
+            <div className="max-w-md mx-auto">
+              <a
+                href="https://t.me/greybrainsoai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex justify-center items-center gap-3 px-8 py-4 bg-linear-to-r from-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all text-white"
               >
                 <Send size={20} />
-                <span>Subscribe</span>
-              </button>
+                <span>Join Telegram</span>
+              </a>
             </div>
-          </div>
           
           <p className="text-gray-500 text-sm mt-6">
-            Join 5,000+ healthcare professionals already subscribed
+            Join 500+ healthcare professionals already subscribed
           </p>
         </div>
       </section>
+
+
 
       
 
