@@ -24,14 +24,14 @@ const AboutPage = ({ onNavigate }) => {
           </p>
         </div>
 
-        <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-8 md:p-12 border border-purple-500/20 mb-12">
+        <div className="bg-linear-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-8 md:p-12 border border-purple-500/20 mb-12">
           <h2 className="text-3xl font-bold mb-8 text-center text-white">The 3D Framework</h2>
           <p className="text-lg text-gray-300 text-center mb-10 max-w-3xl mx-auto">
             Our approach to healthcare AI integration is built upon three fundamental pillars that ensure sustainable transformation and meaningful impact.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20">
-              <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <div className="w-14 h-14 bg-linear-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <span className="text-2xl font-bold">D1</span>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-center text-white">Domain</h3>
@@ -40,7 +40,7 @@ const AboutPage = ({ onNavigate }) => {
               </p>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20">
-              <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <div className="w-14 h-14 bg-linear-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <span className="text-2xl font-bold">D2</span>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-center text-white">Digital</h3>
@@ -49,7 +49,7 @@ const AboutPage = ({ onNavigate }) => {
               </p>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20">
-              <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+              <div className="w-14 h-14 bg-linear-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <span className="text-2xl font-bold">D3</span>
               </div>
               <h3 className="text-2xl font-bold mb-3 text-center text-white">Design</h3>
