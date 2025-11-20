@@ -20,7 +20,7 @@ const PartnersPage = ({ onNavigate }) => {
             <Brain className="w-20 h-20 text-purple-400 mx-auto mb-4 animate-pulse" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Our Innovations
+            Our Innovations at Work
           </h1>
           <p className="text-xl text-gray-400">Collaborating to transform healthcare with AI</p>
         </div>
@@ -29,14 +29,14 @@ const PartnersPage = ({ onNavigate }) => {
           {partnersData.map((partner) => (
             <div 
               key={partner.id}
-              className="relative h-96 cursor-pointer perspective"
+              className="relative h-105 cursor-pointer perspective"
               onClick={() => toggleFlip(partner.id)}
             >
               <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${flippedCards[partner.id] ? 'rotate-y-180' : ''}`}>
                 {/* Front of Card */}
                 <div className="absolute w-full h-full backface-hidden">
                   <div className="h-full bg-linear-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border-2 border-purple-500/30 hover:border-purple-500/60 transition-all shadow-xl flex flex-col items-center justify-center text-center">
-                    <div className="text-6xl mb-4">{partner.logo}</div>
+                    <img src={partner.logo} alt={`${partner.name} logo`} className="w-32 h-32 mb-4 object-contain mx-auto" />
                     <h3 className="text-3xl font-bold mb-4 text-white">{partner.name}</h3>
                     <p className="text-gray-400 text-lg mb-6">{partner.description}</p>
                     <div className={`inline-block px-4 py-2 bg-linear-to-r ${partner.color} rounded-full text-sm font-semibold`}>

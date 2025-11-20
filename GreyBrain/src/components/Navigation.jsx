@@ -13,9 +13,9 @@ const Navigation = ({ currentPage, onNavigate }) => {
 
   const menuItems = [
     { id: 'home', label: 'Home' },
-    { id: 'courses', label: 'Courses' },
-    { id: 'products', label: 'Products' },
-    { id: 'partners', label: 'Partners' },
+    { id: 'courses', label: 'AI School' },
+    { id: 'products', label: 'Innovations' },
+    { id: 'partners', label: 'Innovations at Work' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];

@@ -1,9 +1,13 @@
+import santaanLogo from '../assets/santaan-logo.png'; 
+import skidsLogo from '../assets/skids-logo.png';
+import saiscanLogo from '../assets/saiscan-logo.webp';
+
 const partnersData = [
     {
       id: 1,
       name: "Santaan",
-      description: "AI-powered fertility care with embryo grading, personalized treatment paths, 24/7 support, transparent counselling, standardized protocols, and EMR-based quality monitoring for smarter, data-driven outcomes.",
-      logo: "🧬",
+      description: "AI-powered fertility care with embryo grading, personalized treatment paths, transparent counselling, and EMR-based quality monitoring for smarter, data-driven outcomes.",
+      logo: santaanLogo,
       links: [
         { text: "Santaan AI EMR", url: "https://santaanaimr.santaan.in/" },
         { text: "IVF Companion", url: "https://companion.santaan.in/" },
@@ -17,7 +21,7 @@ const partnersData = [
       id: 2,
       name: "SKIDS",
       description: "AI-driven child health assessment platform",
-      logo: "🧒",
+      logo: skidsLogo,
       links: [
         { text: "SKIDS Advanced", url: "https://advance.skids.clinic/sign-in" },
         { text: "DigiParenting", url: "https://digiparenting.skids.clinic/" }
@@ -25,11 +29,11 @@ const partnersData = [
     },
     {
       id: 3,
-      name: "GreyBrainer",
-      description: "AI-driven movie review platform",
-      logo: "🎬",
+      name: "SAIScan",
+      description: "AI Enabled High Quality Diagnostic Lab",
+      logo: saiscanLogo,
       links: [
-        { text: "GreyBrainer AI", url: "https://greybrainer.netlify.app/" },
+        { text: "SAIScan", url: "https://www.saiscan.com/" },
       ]
     }
   ];

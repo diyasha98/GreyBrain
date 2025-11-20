@@ -36,7 +36,7 @@ const AboutPage = ({ onNavigate }) => {
               </div>
               <h3 className="text-2xl font-bold mb-3 text-center text-white">Domain</h3>
               <p className="text-gray-400 text-center">
-                Deep expertise in medical specialties and clinical practice forms the foundation of our AI solutions, ensuring relevance and practical applicability in real-world healthcare settings.
+                Physiology-level medical deep expertise grounded in decades of clinical experience, ensuring AI solutions are medically sound and explainable to healthcare professionals.
               </p>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20">
@@ -45,7 +45,7 @@ const AboutPage = ({ onNavigate }) => {
               </div>
               <h3 className="text-2xl font-bold mb-3 text-center text-white">Digital</h3>
               <p className="text-gray-400 text-center">
-                Leveraging cutting-edge technology and artificial intelligence capabilities to create innovative tools that enhance clinical workflows and improve healthcare delivery.
+                Ph.D.-level application of Generative AI and advanced machine learning, creating unparalleled possibilities for medical innovation and patient care.
               </p>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20">
@@ -54,7 +54,7 @@ const AboutPage = ({ onNavigate }) => {
               </div>
               <h3 className="text-2xl font-bold mb-3 text-center text-white">Design</h3>
               <p className="text-gray-400 text-center">
-                Emphasizing empathy-driven design and empowerment-focused solutions that prioritize user experience and ensure AI tools serve to enhance, not replace, human judgment.
+                Behavioral models and health economics combined to create solutions fundamentally designed for empathetic and intuitive user experiences.
               </p>
             </div>
           </div>

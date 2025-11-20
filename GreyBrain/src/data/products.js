@@ -16,6 +16,14 @@ const productsData = [
       link: "https://gbseo.netlify.app/"
     },
     {
+      name: "GreyBrainer",
+      description: "AI-driven movie review platform",
+      type: "Product",
+      isPublic: true,
+      image: "🎬",
+      link: "https://medium.com/@GreyBrainer"
+    },
+    {
       name: "Clinical AI Assist",
       description: "Multi-model AI for differential diagnosis, patient communication, and research integration",
       type: "Product",
@@ -24,7 +32,7 @@ const productsData = [
       link: "https://aiassist.greybrain.ai"
     },
     {
-      name: "NutreeAI Platform",
+      name: "NutreeAI",
       description: "AI-powered nutritional analysis with personalized meal planning for optimal child development",
       type: "Product",
       isPublic: true,
@@ -42,6 +50,7 @@ const productsData = [
     {
       name: "SageAI - ConsciousAI",
       description: "Scholarly platform bridging ancient Upanishadic wisdom with modern psychological insights",
+      fullDescription: "ConsciousAI is a modern, scholarly platform for the study of consciousness and the mind. Dive into 13 major Upanishads, 4 Mahavakyas, 30+ stories, and 20+ dialogues, with an intelligent AI companion — SageAI — guiding your journey. Each verse and story is paired with a psychological insight, correlating ancient teachings with modern scientific understanding, so you can apply timeless wisdom to today’s challenges.",
       type: "Product",
       isPublic: true,
       image: "🕉️",
