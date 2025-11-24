@@ -5,6 +5,8 @@ build/
 .env
 .env.local
 package-lock.json
+
+# Ignore mac system files everywhere
 .DS_Store
 */.DS_Store
-
+../.DS_Store
