@@ -15,7 +15,7 @@ const PreviewPage = () => {
               <img 
                 src={Logo} 
                 alt="GreyBrain Logo" 
-                className="w-auto h-30"
+                className="w-auto h-25"
               />
             </div>
           </div>

@@ -11,7 +11,7 @@ import image from '../assets/Hero.jpeg'
 const HomePage = ({ onNavigate }) => {
 
   const [flippedCards, setFlippedCards] = useState({});
-  const [email, setEmail] = useState('');
+  //const [email, setEmail] = useState('');
   const [mediumArticles, setMediumArticles] = useState([]);
   const [loadingArticles, setLoadingArticles] = useState(false);
   const [articlesError, setArticlesError] = useState(null);
