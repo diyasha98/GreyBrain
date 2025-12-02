@@ -93,7 +93,7 @@ const coursesData = [
     },
     {
       id: "genai-medicos-community",
-      name: "Workshop: GenAI for Medicos - Doctors",
+      name: "Workshop: GenAI for Doctors",
       description: "Collaborative GenAI workshop designed for large groups of doctors and healthcare professionals showing how to use AI in real clinical workflows",
       type: "Coming Soon",
       color: "from-blue-500 to-cyan-600",
