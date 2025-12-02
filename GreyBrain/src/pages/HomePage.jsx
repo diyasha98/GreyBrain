@@ -169,29 +169,45 @@ const HomePage = ({ onNavigate }) => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {coursesData.map((course) => (
+            {coursesData.slice(-3).map((course) => (
               <div 
                 key={course.id}
-                className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/50 transition-all hover:transform hover:scale-105 cursor-pointer"
+                className="group bg-linear-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border-2 border-purple-500/30 hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 hover:transform hover:scale-105 cursor-pointer relative overflow-hidden"
               >
-                <div className="text-4xl mb-4">{course.thumbnail}</div>
-                <div className={`inline-block px-4 py-1 bg-linear-to-r ${course.color} rounded-full text-sm font-semibold mb-4`}>
-                  {course.type}
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">{course.name}</h3>
-                <p className="text-gray-400 mb-6">{course.description}</p>
-                <div className="flex items-center space-x-4 text-sm text-gray-500 mb-4">
-                  <span className="flex items-center"><Clock size={16} className="mr-1" /> {course.duration}</span>
-                  <span className="flex items-center"><Users size={16} className="mr-1" /> {course.students}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-purple-400"></span>
-                  <button 
-                  onClick={() => onNavigate('courses', course.id)} 
-                  className="group flex items-center space-x-2 text-purple-400 hover:text-purple-300 font-semibold">
-                    <span>Learn More</span>
-                    <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                  </button>
+                {/* Animated gradient background on hover */}
+                <div className="absolute inset-0 bg-linear-to-br from-purple-600/0 to-pink-600/0 group-hover:from-purple-600/10 group-hover:to-pink-600/10 transition-all duration-300" />
+                
+                <div className="relative z-10">
+                  <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                    {course.thumbnail}
+                  </div>
+                  <div className={`inline-block px-4 py-1.5 bg-linear-to-r ${course.color} rounded-full text-sm font-bold mb-4 shadow-lg`}>
+                    {course.type}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">
+                    {course.name}
+                  </h3>
+                  <p className="text-gray-400 mb-6 group-hover:text-gray-300 transition-colors leading-relaxed">
+                    {course.description}
+                  </p>
+                  <div className="flex items-center space-x-4 text-sm text-gray-500 mb-6">
+                    <span className="flex items-center bg-gray-700/50 px-3 py-1.5 rounded-lg">
+                      <Clock size={16} className="mr-1.5 text-purple-400" /> {course.duration}
+                    </span>
+                    <span className="flex items-center bg-gray-700/50 px-3 py-1.5 rounded-lg">
+                      <Users size={16} className="mr-1.5 text-purple-400" /> {course.students}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-700/50">
+                    <span className="text-2xl font-bold text-purple-400"></span>
+                    <button 
+                      onClick={() => onNavigate('courses', course.id)} 
+                      className="group/btn flex items-center space-x-2 text-purple-400 hover:text-purple-300 font-semibold bg-purple-500/10 hover:bg-purple-500/20 px-4 py-2 rounded-lg transition-all"
+                    >
+                      <span>Learn More</span>
+                      <ChevronRight className="group-hover/btn:translate-x-1 transition-transform" size={20} />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

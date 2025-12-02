@@ -35,46 +35,6 @@ const CoursesPage = ({ onNavigate, selectedCourseId }) => {
         </div>
 
         <div>
-          <p className="text-4xl font-bold mb-10 text-purple-400 flex justify-center">Ongoing Courses</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-20 ">
-          {availableCourses.map((course, idx) => (
-            <div 
-              key={idx}
-              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/50 transition-all hover:transform hover:scale-105 cursor-pointer"
-              onClick={() => setSelectedCourse(course)}
-            >
-              <div className={`inline-block px-4 py-1 bg-gradient-to-right ${course.color} rounded-full text-sm font-semibold mb-4`}>
-                {course.type}
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-white">{course.name}</h3>
-              <p className="text-gray-400 mb-6">{course.description}</p>
-              
-              <div className="flex items-center space-x-6 text-sm text-gray-500 mb-6">
-                <span className="flex items-center">
-                  <Clock size={16} className="mr-1" /> {course.duration}
-                </span>
-                <span className="flex items-center">
-                  <Users size={16} className="mr-1" /> {course.students}
-                </span>
-                <span className="flex items-center">
-                  <Star size={16} className="mr-1 text-yellow-400" /> {course.rating}
-                </span>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold text-purple-400">{course.price}</span>
-                <button className="group flex items-center space-x-2 text-purple-400 hover:text-purple-300 font-semibold">
-                  <span>View Details</span>
-                  <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div>
           <p className="text-4xl font-bold mb-10 text-purple-400 flex justify-center">Coming Soon</p>
         </div>
 
@@ -115,6 +75,48 @@ const CoursesPage = ({ onNavigate, selectedCourseId }) => {
             </div>
           ))}
         </div>
+
+        <div>
+          <p className="text-4xl font-bold mb-10 text-purple-400 flex justify-center">Ongoing Courses</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-20 ">
+          {availableCourses.map((course, idx) => (
+            <div 
+              key={idx}
+              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/50 transition-all hover:transform hover:scale-105 cursor-pointer"
+              onClick={() => setSelectedCourse(course)}
+            >
+              <div className={`inline-block px-4 py-1 bg-gradient-to-right ${course.color} rounded-full text-sm font-semibold mb-4`}>
+                {course.type}
+              </div>
+              <h3 className="text-2xl font-bold mb-3 text-white">{course.name}</h3>
+              <p className="text-gray-400 mb-6">{course.description}</p>
+              
+              <div className="flex items-center space-x-6 text-sm text-gray-500 mb-6">
+                <span className="flex items-center">
+                  <Clock size={16} className="mr-1" /> {course.duration}
+                </span>
+                <span className="flex items-center">
+                  <Users size={16} className="mr-1" /> {course.students}
+                </span>
+                <span className="flex items-center">
+                  <Star size={16} className="mr-1 text-yellow-400" /> {course.rating}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <span className="text-2xl font-bold text-purple-400">{course.price}</span>
+                <button className="group flex items-center space-x-2 text-purple-400 hover:text-purple-300 font-semibold">
+                  <span>View Details</span>
+                  <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ const coursesData = [
       type: "Featured Program",
       color: "from-purple-600 to-indigo-600",
       duration: "12 weeks",
-      price: "35000",
       level: "All Levels",
       thumbnail: "🎓",
       fullDescription: "Learn how to safely and effectively apply Generative AI in clinical practice, research, documentation, diagnostics, and healthcare operations. Designed for healthcare professionals with no technical background, this jargon-free, human-first program empowers you with personalised AI-powered learning agents—your own AI companions that adapt to your pace and style. Through hands-on training and experiential learning, you’ll master AI use under the guidance of medical doctors and AI experts, gaining the confidence and skills to integrate Generative AI seamlessly into your professional practice.\nUnlock your potential and lead the future of healthcare innovation.",
@@ -29,7 +28,7 @@ const coursesData = [
       name: "PhyScipreneur: The Doctor's MBA",
       description: "Entrepreneurship course for doctors focusing on idea validation, feasibility, business strategy and growth planning in healthcare",
       category: "Course",
-      type: "Coming Soon",
+      type: "Featured Program",
       color: "from-emerald-500 to-teal-600",
       duration: "12 Weeks",
       level: "Intermediate to Advanced",
@@ -58,7 +57,7 @@ const coursesData = [
       name: "Spiritual Health: Science Behind Holistic Wellness",
       description: "Explore the science behind spirituality and its contribution to holistic health using VedVision tools",
       category: "Course",
-      type: "Coming Soon",
+      type: "Featured Program",
       color: "from-amber-500 to-orange-600",
       duration: "TBA",
       level: "All Levels",
@@ -68,6 +67,83 @@ const coursesData = [
       instructor: ["Dr Satish Prasad Rath, Prof. Prathosh A P"],
       benefits: "Access to VedVision tool and Vedic wisdom resources",
       link: "https://vedantavision.skids.clinic/"
+    },
+    {
+      id: "genai-medicos-institutional",
+      name: "Workshop: GenAI for Medicos - Institutional",
+      description: "Exclusive workshop designed to upskill medical students and faculty with cutting-edge GenAI applications in healthcare and medical education to enhance their learning with AI",
+      category: "Workshop",
+      type: "Coming Soon",
+      color: "from-purple-500 to-indigo-600",
+      duration: "4 Hours (Single Day)",
+      level: "All Levels",
+      thumbnail: "🏥",
+      fullDescription: "Medical Schools Edition: For medical students and faculty. Covers how GenAI works, daily use cases  - helping institutions integrate AI into training.",
+      modules: [
+        "Anatomy & Physiology of LLMs: What AI models are made of (Anatomy) and how they think and work (Physiology)",
+        "AI For Learning, Analytics, Presentations",
+        "AI For Deep Research, Academic Research, Paper Writing"
+      ],
+      benefits: "Exclusive GreyWaken Access, Certificate of Completion, Hands-on AI tools training, Institution-wide capacity building",
+      capacity: "100-500 Students",
+      format: "Online",
+      link: "https://forms.gle/snqCkE6Aivr3SuHVA",
+      contact: "+91 9611358504",
+      socialMedia: "@greybrain.ai"
+    },
+    {
+      id: "genai-medicos-community",
+      name: "Workshop: GenAI for Medicos - Doctors",
+      description: "Collaborative GenAI workshop designed for large groups of doctors and healthcare professionals showing how to use AI in real clinical workflows",
+      type: "Coming Soon",
+      color: "from-blue-500 to-cyan-600",
+      duration: "4 Hours (Single Day)",
+      level: "All Levels",
+      thumbnail: "👥",
+      fullDescription: "Doctors Edition: For large groups of doctors across WhatsApp communities, associations, and specialty networks. Focuses on AI in daily clinical workflows - to enable confident adoption in practice.",
+      modules: [
+        "Anatomy & Physiology of LLMs: What AI models are made of (Anatomy) and how they think and work (Physiology)",
+        "AI For Learning, Analytics, Presentations",
+        "AI For Deep Research, Academic Research, Paper Writing"
+      ],
+      benefits: "Exclusive GreyWaken Access",
+      capacity: "100-500 Participants",
+      format: "Online",
+      link: "#",
+      contact: "+91 9611358504",
+      socialMedia: "@greybrain.ai"
+    },
+    {
+      id: "genai-doctors-express",
+      name: "Generative AI For Doctors - Express",
+      description: "Empowering doctors, clinicians, and healthcare innovators to harness the potential of GenAI responsibly, effectively, and ethically",
+      category: "Course",
+      type: "Coming Soon",
+      color: "from-emerald-500 to-teal-600",
+      duration: "2 Weeks",
+      level: "All Levels",
+      thumbnail: "🩺",
+      rating: "5.0",
+      fullDescription: "Transform your medical practice with AI. This comprehensive course equips healthcare professionals with fundamental understanding and practical skills to confidently integrate artificial intelligence into daily workflows. Master the anatomy and physiology of LLMs, learn to use powerful super-agent systems for document creation and deep research, and strengthen your academic output with AI-assisted literature reviews and research writing. Complete with a hands-on capstone project that demonstrates real-world application in healthcare. Flexible enrollment available - take the full course or opt for individual modules based on your needs.",
+      modules: [
+        "Anatomy and Physiology of LLM: Core concepts, model behavior, and real-world applications in clinical practice, research, and healthcare administration",
+        "Super Agents: Advanced AI-driven tools for creating documents, presentations, patient communication material, and deep research summaries",
+        "Using AI for Academic Research and Paper Writing: Modern methods for literature reviews, data interpretation support, and drafting research papers with AI assistance",
+        "Capstone Project: Personalized real-world use case application"
+      ],
+      instructor: ["Dr Satish Rath, Dr Pratichi Mishra, Dr Prathosh AP, Dr Lalit Gupta"],
+      benefits: "3 Live Sessions + Capstone, Flexible module enrollment",
+      learningOutcomes: [
+        "Foundational understanding of AI systems, models, and clinical applications",
+        "Proficiency in using AI super-agents for efficient document creation and deep research",
+        "Accelerated academic writing, literature reviews, and research publications",
+        "Practical capability to integrate AI workflows into clinical, administrative, and academic tasks",
+        "Real-world competency demonstrated through capstone project"
+      ],
+      format: "Live Online",
+      link: "https://learn.greybrain.ai/course/gen-ai-doctors-express",
+      contact: "+91 9611358504",
+      socialMedia: "@greybrain.ai"
     }
   ];
 

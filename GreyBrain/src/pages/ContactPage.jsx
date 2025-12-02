@@ -143,7 +143,7 @@ const ContactPage = ({ onNavigate }) => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
+            <div className="bg-linear-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
               <h3 className="font-bold text-lg mb-2 text-white">Office Hours</h3>
               <p className="text-gray-400">
                 Monday - Friday: 9:00 AM - 6:00 PM IST<br />
