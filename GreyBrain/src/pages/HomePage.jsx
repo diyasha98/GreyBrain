@@ -182,7 +182,7 @@ const HomePage = ({ onNavigate }) => {
                     {course.thumbnail}
                   </div>
                   <div className={`inline-block px-4 py-1.5 bg-linear-to-r ${course.color} rounded-full text-sm font-bold mb-4 shadow-lg`}>
-                    {course.type}
+                    {course.type1}
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-300 transition-colors">
                     {course.name}

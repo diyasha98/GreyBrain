@@ -35,7 +35,7 @@ const CoursesPage = ({ onNavigate, selectedCourseId }) => {
         </div>
 
         <div>
-          <p className="text-4xl font-bold mb-10 text-purple-400 flex justify-center">Coming Soon</p>
+          <p className="text-4xl font-bold mb-10 text-purple-400 flex justify-center">Coming Soon(Register Now)</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-20 ">
@@ -46,7 +46,7 @@ const CoursesPage = ({ onNavigate, selectedCourseId }) => {
               onClick={() => setSelectedCourse(course)}
             >
               <div className={`inline-block px-4 py-2 bg-gradient-to-right ${course.color} rounded-full text-sm font-semibold mb-4 animate-pulse shadow-lg`}>
-                {course.type}
+                {course.type1}
               </div>
               <h3 className="text-2xl font-bold mb-3 text-white flex items-center gap-2">{course.name}
                 <Star className="w-5 h-5 text-yellow-400 animate-pulse" />
@@ -66,7 +66,6 @@ const CoursesPage = ({ onNavigate, selectedCourseId }) => {
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold text-purple-400">{course.price}</span>
                 <button className="group flex items-center space-x-2 text-purple-400 hover:text-purple-300 font-semibold">
                   <span>View Details</span>
                   <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
