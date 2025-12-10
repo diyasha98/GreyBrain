@@ -57,6 +57,15 @@ const productsData = [
       link: "https://sageai.greybrain.in/intro"
     },
     {
+      name: "RESPIRA",
+      description: "Your Personal AI Breathing Coach - Voice-activated AI coach for daily well-being with real-time coaching and circadian rhythm synchronization",
+      fullDescription: "A voice-activated AI coach for daily well-being, with real-time coaching, circadian rhythm synchronization, and zero-knowledge privacy. Features 5 daily breathing protocols: Sunrise Protocol (07:00) to energize your morning, Focus State (10:00) for deep work, Kinetic Sync (18:00) for post-work decompression, Moonlight Log (22:00) to release the day, and Delta Wave (23:00) for deep sleep preparation.",
+      type: "Product",
+      isPublic: true,
+      image: "🫁",
+      link: "https://aispira.netlify.app"
+    },
+    {
       name: "FaceVital",
       description: "AI-powered facial analysis for health insights",
       type: "Product",

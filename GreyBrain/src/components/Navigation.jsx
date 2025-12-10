@@ -16,6 +16,7 @@ const Navigation = ({ currentPage, onNavigate }) => {
     { id: 'courses', label: 'AI School' },
     { id: 'products', label: 'Innovations' },
     { id: 'partners', label: 'Innovations at Work' },
+    { id: 'newsletters', label: 'AI Updates' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];

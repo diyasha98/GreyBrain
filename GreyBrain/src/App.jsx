@@ -6,6 +6,7 @@ import ProductsPage from './pages/ProductsPage';
 import PartnersPage from './pages/PartnersPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import NewslettersPage from './pages/NewslettersPage';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -31,8 +32,10 @@ const App = () => {
       {currentPage === 'courses' && <CoursesPage onNavigate={handleNavigate} selectedCourseId={selectedCourseId} />}
       {currentPage === 'products' && <ProductsPage onNavigate={handleNavigate} />}
       {currentPage === 'partners' && <PartnersPage onNavigate={handleNavigate} />}
+      {currentPage === 'newsletters' && <NewslettersPage onNavigate={handleNavigate}/>}
       {currentPage === 'about' && <AboutPage  onNavigate={handleNavigate}/>}
       {currentPage === 'contact' && <ContactPage onNavigate={handleNavigate}/>}
+
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-purple-500/20 bg-gray-900 relative z-10">
