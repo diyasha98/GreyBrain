@@ -5,7 +5,7 @@ const productsData = [
       type: "Product",
       isPublic: true,
       image: "🧠",
-      link: "http://greywaken.greybrain.ai"
+      link: "https://greywaken.greybrain.in/"
     },
     {
       name: "GBSEO",
