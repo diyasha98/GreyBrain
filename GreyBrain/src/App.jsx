@@ -40,7 +40,7 @@ const App = () => {
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-purple-500/20 bg-gray-900 relative z-10">
         <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p>&copy; 2024 GreyBrain. Empowering doctors with AI.</p>
+          <p>&copy; 2026 GreyBrain. Empowering doctors with AI.</p>
         </div>
       </footer>
     </div>

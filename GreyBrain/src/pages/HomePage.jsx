@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, BookOpen, Package, ChevronRight, Users, Clock, Brain, Zap, Award, TrendingUp, Mail, Send, ExternalLink, FlaskConical, Star, Loader2 } from 'lucide-react';
+import { Sparkles, BookOpen, Package, ChevronRight, Users, Clock, Brain, Zap, Award, TrendingUp, Mail, Send, ExternalLink, FlaskConical, Star, Loader2, MessageCircle } from 'lucide-react';
 import { coursesData } from '../data/courses';
 // import { productsData } from '../data/products';
 import { partnersData } from '../data/partners';
@@ -10,7 +10,12 @@ import image from '../assets/Hero.jpeg'
 
 const HomePage = ({ onNavigate }) => {
 
-  const [flippedCards, setFlippedCards] = useState({});
+  const [flippedCards, setFlippedCards] = useState({
+    greybrain: true,
+    sageai: true,
+    greybrainer: true,
+  });
+  const [showInnovations, setShowInnovations] = useState(false)
   //const [email, setEmail] = useState('');
   const [mediumArticles, setMediumArticles] = useState([]);
   const [loadingArticles, setLoadingArticles] = useState(false);
@@ -18,10 +23,15 @@ const HomePage = ({ onNavigate }) => {
   const [sageArticles, setSageArticles] = useState([]); 
   const [loadingSageArticles, setLoadingSageArticles] = useState(false); 
   const [sageArticlesError, setSageArticlesError] = useState(null); 
+   const [gbArticles, setGbArticles] = useState([]); 
+  const [loadingGbArticles, setLoadingGbArticles] = useState(false); 
+  const [gbArticlesError, setGbArticlesError] = useState(null); 
+  
 
   useEffect(() => {
     fetchMediumArticles();
     fetchSageArticles();
+    fetchGbArticles();
   }, []);
 
   const fetchMediumArticles = async () => {
@@ -90,6 +100,38 @@ const HomePage = ({ onNavigate }) => {
   }
 };
 
+  const fetchGbArticles = async () => {
+  try {
+    setLoadingGbArticles(true);
+    const username = 'GreyBrain';
+    const rssUrl = `https://medium.com/feed/@${username}`;
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+    
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if (data.status === 'ok') {
+      const formattedArticles = data.items.map(item => ({
+        title: item.title,
+        link: item.link,
+        pubDate: new Date(item.pubDate),
+        description: item.description.replace(/<[^>]*>/g, '').substring(0, 200),
+        thumbnail: item.thumbnail || extractImageFromContent(item.content, 0),
+        backImage: extractImageFromContent(item.content, 1) || null,
+        categories: item.categories || []
+      }));
+      setGbArticles(formattedArticles);
+    } else {
+      setGbArticlesError('Failed to fetch articles');
+    }
+  } catch (err) {
+    setGbArticlesError('Error loading articles');
+    console.error(err);
+  } finally {
+    setLoadingGbArticles(false);
+  }
+};
+
   const extractImageFromContent = (content, imageIndex = 0) => {
   const imgRegex = /<img[^>]+src="([^">]+)"/g;
   const matches = [...content.matchAll(imgRegex)];
@@ -151,8 +193,30 @@ const HomePage = ({ onNavigate }) => {
           <p className="text-xl md:text-3xl text-gray-300 mb-18 max-w-3xl mx-auto">
             Merging Medical Deep Expertise with Generative AI and Human-Centric Design
           </p>
+
+          {/* Social Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <a
+            href="https://t.me/greybrainsoai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all text-white"
+          >
+            <Send size={20} />
+            <span>Join Telegram</span>
+          </a>
           
-          
+          <a
+            href="https://lnkd.in/gckUhjrq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full font-semibold hover:shadow-lg hover:shadow-green-500/50 transition-all text-white"
+          >
+            <MessageCircle size={20} />
+            <span>Join WhatsApp</span>
+          </a>
+        </div>
+        
           {/* Three D³ Cards */}
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
             <div className="group bg-gray-800/80 backdrop-blur-lg rounded-2xl p-8 border-2 border-purple-500/30 hover:border-purple-500 transition-all hover:transform hover:scale-105">
@@ -193,6 +257,7 @@ const HomePage = ({ onNavigate }) => {
           </div>
         </div>
       </section>
+
 
       {/* Featured Courses Section */}
       <section className="py-20 px-4 relative">
@@ -263,7 +328,7 @@ const HomePage = ({ onNavigate }) => {
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* GreyWaken Card */}
-            <div 
+            {/* <div 
               className="relative h-110 cursor-pointer perspective"
               onClick={() => toggleFlip('greywaken')}
             >
@@ -295,10 +360,10 @@ const HomePage = ({ onNavigate }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Clinical AI Assistant Card */}
-            <div 
+            {/* <div 
               className="relative h-110 cursor-pointer perspective"
               onClick={() => toggleFlip('gbsco')}
             >
@@ -330,6 +395,244 @@ const HomePage = ({ onNavigate }) => {
                   </div>
                 </div>
               </div>
+            </div>*/}
+          </div> 
+
+          {/* GB AI Card */}
+          <div className="relative">
+            {/* Main Header Section */}
+            <div className="bg-linear-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border-2 border-purple-500/30 hover:border-purple-500/60 transition-all shadow-xl">
+              <div className="flex flex-col items-center justify-center text-center">
+                <div className="text-6xl mb-4">🤖</div>
+                <h3 className="text-3xl font-bold mb-4 text-white">GreyBrain</h3>
+                <p className="text-gray-400 text-lg mb-6">GreyBrain AI Updates - Stay updated with the latest AI-powered insights, and healthcare innovations from GreyBrain</p>
+                <button
+                  onClick={() => toggleFlip('greybrain')}
+                  className="inline-block px-4 py-2 bg-linear-to-r from-purple-500 to-pink-500 rounded-full text-sm font-semibold cursor-pointer hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+                >
+                  {flippedCards['greybrain'] ? 'Hide Articles' : 'Click to see latest'}
+                </button>
+              </div>
+
+              {/* Articles Section - Expands Below */}
+              <div className={`transition-all duration-700 overflow-hidden ${flippedCards['greybrain'] ? 'max-h-[5000px] opacity-100 mt-8' : 'max-h-0 opacity-0'}`}>
+                <div className="pt-8 border-t border-purple-500/30">
+                  {/* <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                      Latest Articles
+                    </h2>
+                    <p className="text-lg text-gray-400">Explore consciousness and wisdom with Sage AI</p>
+                  </div> */}
+                  
+                  {loadingGbArticles ? (
+                    <div className="text-center py-12">
+                      <Loader2 className="w-12 h-12 animate-spin text-purple-400 mx-auto mb-4" />
+                      <p className="text-gray-400">Loading latest articles...</p>
+                    </div>
+                  ) : gbArticlesError ? (
+                    <div className="text-center py-12">
+                      <p className="text-red-400 mb-4">{gbArticlesError}</p>
+                      <button 
+                        onClick={fetchGbArticles}
+                        className="px-6 py-2 bg-purple-500 hover:bg-purple-600 rounded-full text-white font-semibold transition-all"
+                      >
+                        Retry
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      {/* Latest 3 Articles in Card Grid */}
+                      <div className="grid md:grid-cols-3 gap-5 mb-8">
+                        {gbArticles.slice(0, 3).map((article, idx) => (
+                          <div 
+                            key={idx}
+                            className="relative h-96 cursor-pointer perspective"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleFlip(`greybrain-article-${idx}`);
+                            }}
+                          >
+                            <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${flippedCards[`greybrain-article-${idx}`] ? 'rotate-y-180' : ''}`}>
+                              {/* Front of Card */}
+                              <div className="absolute w-full h-full backface-hidden">
+                                <div className="h-full bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all shadow-xl flex flex-col">
+                                  {article.thumbnail && (
+                                    <div className="h-48 overflow-hidden bg-gray-700">
+                                      <img
+                                        src={article.thumbnail}
+                                        alt={article.title}
+                                        className="w-full h-full object-cover"
+                                      />
+                                    </div>
+                                  )}
+                                  <div className="p-6 flex flex-col flex-1">
+                                    <div className="flex items-center justify-between mb-3">
+                                      <div className="inline-block px-4 py-1 bg-linear-to-r from-blue-500 to-indigo-500 rounded-full text-xs font-semibold self-start">
+                                        Article
+                                      </div>
+                                      {/* Rating Section */}
+                                      <div className="flex items-center gap-2 mb-4">
+                                        <div className="flex">
+                                          {[...Array(5)].map((_, i) => (
+                                            <Star 
+                                              key={i} 
+                                              className={`w-4 h-4 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} 
+                                            />
+                                          ))}
+                                        </div>
+                                        <span className="text-white/90 text-sm font-semibold">4.0/5</span>
+                                      </div>
+                                    </div>
+
+                                    <h3 className="text-xl font-bold mb-2 text-white line-clamp-2">{article.title}</h3>
+                                    <p className="text-gray-500 text-xs mb-4">{formatDate(article.pubDate)}</p>
+                                    <div className="mt-auto">
+                                      <div className="text-purple-400 font-semibold text-sm">Click to read more →</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Back of Card */}
+                              <div className="absolute w-full h-full backface-hidden rotate-y-180">
+                                <div className="h-full bg-linear-to-br from-blue-600 to-indigo-600 rounded-2xl overflow-hidden shadow-xl flex flex-col relative">
+                                  <div className="p-6 flex flex-col flex-1 relative z-10">
+                                    <h3 className="text-xl font-bold mb-3 text-white line-clamp-2">{article.title}</h3>
+                                    
+                                    <p className="text-white/90 text-sm leading-relaxed mb-4 line-clamp-4">{article.description}...</p>
+                                    
+                                    {article.categories && article.categories.length > 0 && (
+                                      <div className="flex flex-wrap gap-2 mb-4">
+                                        {article.categories.slice(0, 3).map((cat, i) => (
+                                          <span key={i} className="px-2 py-1 bg-white/20 rounded-full text-xs text-white">
+                                            {cat}
+                                          </span>
+                                        ))}
+                                      </div>
+                                    )}
+
+                                    <div className="mt-auto">
+                                      <a 
+                                        href={article.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center space-x-2 text-white font-semibold hover:underline"
+                                        onClick={(e) => e.stopPropagation()}
+                                      >
+                                        <ExternalLink size={18} />
+                                        <span>Read Full Article</span>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Buttons */}
+                      <div className="flex flex-wrap justify-center gap-4 mb-8">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleFlip('greybrain-all-articles');
+                          }}
+                          className="inline-flex items-center space-x-2 px-8 py-4 bg-linear-to-r from-blue-500 to-indigo-500 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all text-white"
+                        >
+                          <span>See All Articles</span>
+                          <ChevronRight size={20} />
+                        </button>
+                        {/* <a 
+                          href="https://medium.com/@Sage_AI"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center space-x-2 px-8 py-4 bg-linear-to-r from-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all text-white"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <span>See More on Medium</span>
+                          <ExternalLink size={20} />
+                        </a> */}
+                      </div>
+
+                      {/* All Articles List View */}
+                      <div className={`transition-all duration-700 overflow-hidden ${flippedCards['greybrain-all-articles'] ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div className="border-t border-purple-500/30 pt-8">
+                          <div className="flex items-center justify-between mb-6">
+                            <h3 className="text-2xl font-bold text-white">All Articles ({gbArticles.length})</h3>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleFlip('greybrain-all-articles');
+                              }}
+                              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-full text-white text-sm font-semibold transition-all"
+                            >
+                              Close
+                            </button>
+                          </div>
+                          
+                          <div className="space-y-4">
+                            {gbArticles.slice(3).map((article, idx) => (
+                              <div 
+                                key={idx}
+                                className="bg-gray-800/50 backdrop-blur-sm rounded-xl border border-purple-500/20 hover:border-purple-500/50 transition-all p-6 flex flex-col md:flex-row gap-6"
+                              >
+                                {article.thumbnail && (
+                                  <div className="md:w-48 h-32 shrink-0 overflow-hidden rounded-lg bg-gray-700">
+                                    <img
+                                      src={article.thumbnail}
+                                      alt={article.title}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                )}
+                                
+                                <div className="flex-1 flex flex-col">
+                                  <div className="flex items-start justify-between gap-4 mb-2">
+                                    <h4 className="text-xl font-bold text-white hover:text-purple-400 transition-colors">
+                                      {article.title}
+                                    </h4>
+                                    <span className="px-3 py-1 bg-linear-to-r from-blue-500 to-indigo-500 rounded-full text-xs font-semibold whitespace-nowrap shrink-0">
+                                      Article
+                                    </span>
+                                  </div>
+                                  
+                                  <p className="text-gray-500 text-sm mb-3">{formatDate(article.pubDate)}</p>
+                                  
+                                  <p className="text-gray-400 text-sm mb-4 line-clamp-2">{article.description}</p>
+                                  
+                                  {article.categories && article.categories.length > 0 && (
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                      {article.categories.slice(0, 4).map((cat, i) => (
+                                        <span key={i} className="px-3 py-1 bg-gray-700/50 rounded-full text-xs text-gray-300">
+                                          {cat}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  )}
+                                  
+                                  <div className="mt-auto">
+                                    <a 
+                                      href={article.link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center space-x-2 text-purple-400 hover:text-purple-300 font-semibold text-sm transition-colors"
+                                      onClick={(e) => e.stopPropagation()}
+                                    >
+                                      <span>Read Full Article</span>
+                                      <ExternalLink size={16} />
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -352,12 +655,12 @@ const HomePage = ({ onNavigate }) => {
               {/* Articles Section - Expands Below */}
               <div className={`transition-all duration-700 overflow-hidden ${flippedCards['sageai'] ? 'max-h-[5000px] opacity-100 mt-8' : 'max-h-0 opacity-0'}`}>
                 <div className="pt-8 border-t border-purple-500/30">
-                  <div className="text-center mb-12">
+                  {/* <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                       Latest Articles
                     </h2>
                     <p className="text-lg text-gray-400">Explore consciousness and wisdom with Sage AI</p>
-                  </div>
+                  </div> */}
                   
                   {loadingSageArticles ? (
                     <div className="text-center py-12">
@@ -478,7 +781,7 @@ const HomePage = ({ onNavigate }) => {
                           <span>See All Articles</span>
                           <ChevronRight size={20} />
                         </button>
-                        <a 
+                        {/* <a 
                           href="https://medium.com/@Sage_AI"
                           target="_blank"
                           rel="noopener noreferrer"
@@ -487,7 +790,7 @@ const HomePage = ({ onNavigate }) => {
                         >
                           <span>See More on Medium</span>
                           <ExternalLink size={20} />
-                        </a>
+                        </a> */}
                       </div>
 
                       {/* All Articles List View */}
@@ -590,12 +893,12 @@ const HomePage = ({ onNavigate }) => {
             {/* Articles Section - Expands Below */}
             <div className={`transition-all duration-700 overflow-hidden ${flippedCards['greybrainer'] ? 'max-h-[5000px] opacity-100 mt-8' : 'max-h-0 opacity-0'}`}>
               <div className="pt-8 border-t border-purple-500/30">
-                <div className="text-center mb-12">
+                {/* <div className="text-center mb-12">
                   <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     Latest Articles
                   </h2>
                   <p className="text-lg text-gray-400">Stay updated with the AI-powered GreyBrainer articles</p>
-                </div>
+                </div> */}
                 
                 {loadingArticles ? (
                   <div className="text-center py-12">
@@ -744,7 +1047,7 @@ const HomePage = ({ onNavigate }) => {
                         <span>See All Articles</span>
                         <ChevronRight size={20} />
                       </button>
-                      <a 
+                      {/* <a 
                         href="https://medium.com/@GreyBrainer"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -753,7 +1056,7 @@ const HomePage = ({ onNavigate }) => {
                       >
                         <span>See More on Medium</span>
                         <ExternalLink size={20} />
-                      </a>
+                      </a> */}
                     </div>
 
                     {/* All Articles List View */}
@@ -840,15 +1143,30 @@ const HomePage = ({ onNavigate }) => {
       </section>
 
       {/* Partners Section with Expandable Cards */}
-      <section className="py-20 px-4 relative">
+     
+      <section className="py-20 px-4 relative animate-fade-in">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Innovations at Work
             </h2>
             <p className="text-xl text-gray-400">Empowering healthcare innovation together</p>
+
+            {/* <button
+              onClick={() => setShowInnovations(prev => !prev)}
+              className="px-6 py-3 mt-4 bg-linear-to-r from-purple-500 to-pink-500 rounded-full font-semibold hover:shadow-lg transition-all"
+            >
+              See Details
+            </button> */}
+            <button
+                  onClick={() => toggleFlip('innovations')}
+                  className="inline-block px-6 py-4 mt-4 bg-linear-to-r from-purple-500 to-pink-500 rounded-full text-sm font-semibold cursor-pointer hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+                >
+                  {flippedCards['innovations'] ? 'Hide Details' : 'See Details'}
+            </button>
+
           </div>
-          
+          {flippedCards['innovations'] && (
           <div className="space-y-10">
             {partnersData.map((partner) => (
               <div key={partner.id} className="relative">
@@ -969,13 +1287,13 @@ const HomePage = ({ onNavigate }) => {
               </div>
             ))}
           </div>
+          )}
         </div>
       </section>
 
-      
 
       {/* Newsletter Subscribe Section */}
-      <section className="py-20 px-4 relative">
+      {/* <section className="py-20 px-4 relative">
 
           <div className="max-w-4xl mx-auto text-center">
             <Mail className="w-16 h-16 text-purple-400 mx-auto mb-6 animate-pulse" />
@@ -1002,8 +1320,7 @@ const HomePage = ({ onNavigate }) => {
             Join 500+ healthcare professionals already subscribed
           </p>
         </div>
-      </section>
-
+      </section> */}
 
 
       
@@ -1034,7 +1351,24 @@ const HomePage = ({ onNavigate }) => {
         .rotate-y-180 {
           transform: rotateY(180deg);
         }
-      `}</style>
+          @keyframes fade-in {
+            from {
+              opacity: 0;
+              transform: translateY(40px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-fade-in {
+            animation: fade-in 0.6s ease-out;
+          }
+
+      `}
+      
+      </style>
     </div>
   );
 };
