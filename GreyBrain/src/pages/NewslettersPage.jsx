@@ -14,7 +14,7 @@ const NewslettersPage = () => {
   const fetchMediumArticles = async () => {
     try {
       setLoadingArticles(true);
-      const username = 'GreyBrain';
+      const username = 'ClinicalAI';
       const rssUrl = `https://medium.com/feed/@${username}`;
       const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
       
